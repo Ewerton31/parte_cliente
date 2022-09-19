@@ -1,0 +1,26 @@
+{% extends 'base_portal_profissional.html' %} {% block header %} Curso {{curso.id}} {%endblock%}
+
+{%block content %}
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+
+            <div class="card text-center">
+                <div class="card-header text-white bg-primary">
+                  Categoria
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">{{curso.nome_curso}}</h4>
+                  <p class="card-text">{{curso.sobre_curso}}</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><h4 class="card-header">Carga horária</h4> <br/> {{curso.carga_horaria}}</li>
+                    <li class="list-group-item"><h4 class="card-header">Possui Certificado?</h4> <br/> {{curso.possui_certificado}}</li>
+                    <li class="list-group-item"><h4 class="card-header">Programa</h4> {{curso.programa_curso}}</li>
+                    <li class="list-group-item"><h4 class="card-header">Cronograma</h4> <br/> {{curso.cronograma_curso}}</li>
+                    <li class="list-group-item"><h4 class="card-header">Bibliografia</h4><br/> {{curso.bibliografia_curso}}</li>
+                    <li class="list-group-item"><h4 class="card-header">Preço</h4>R$ {{curso.preco_curso}}</li>
+                    <li class="list-group-item"><h4 class="card-header">Método de Pagamento</h4> <br/> {{curso.metodo_pagamento}}</li>
+                  </ul>
+                </div>
+              </div>
+
+{%endblock%}

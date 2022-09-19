@@ -1,0 +1,45 @@
+{% extends 'base_cadastro.html' %} {% block title %} Alterar Senha - {{editar_profissional.nome_profissional}} {%endblock%}
+    
+    {%block content %} 
+    {% if id == current_user.id %}
+    <div style="padding-top:5%;">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h3 class="form-title">Alterar senha</h3>
+                    <form method="POST" class="register-form" id="register-form">
+                        <div class="form-group">
+                            <label for="senhaProfissional"><i class="bi bi-key-fill"></i></label>
+                            <input type="password" name="senha_profissional" id="senha_profissional" placeholder="Senha*" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="senhaProfissionalConfirmar"><i class="bi bi-key"></i></label>
+                            <input type="password" name="senha_profissionalConfirmar" id="senha_profissionalConfirmar" placeholder="Confirme sua senha*" required/>
+                        </div>
+                        <a class="btn btn-primary" href="/portal_profissional" role="button">Voltar</a>
+                        <button type="submit" class="btn btn-primary">Alterar</button>
+                    </form>
+                </div>
+                <div class="signup-image">
+                  <img src="/static/assets/img/psicologia2.png" alt="logar na conta">
+                    <a href="#" class="signup-image-link">Já possui uma conta?</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+      {% else %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           Você não tem permissão para acessar essa página.
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+     
+         <h2>Acesso negado.</h2>
+         <p>Você não pode acessar a página deste usuário.</p>
+     
+     {% endif %}
+     
+     
+     {% endblock %}
+
+

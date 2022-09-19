@@ -1,0 +1,323 @@
+{% extends 'base.html' %} {% block title %} Início {%endblock%}
+
+
+    {%block content %}
+        <!-- Navegação -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+          <div class="container">
+              <!--<a class="navbar-brand" href="#page-top"><img src="#" alt="..." width="500px" width="500px"/></a>-->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fas fa-bars ms-1"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <!-- Se o usuário estiver logado, mostre esse nav bar -->
+                    {% if profissional.is_authenticated %} 
+                      <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#planos">Nossos Planos</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/portal_profissional">Portal</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/sair_profissional">Sair</a></li>
+                      <!-- Se o usuário não estiver logado, mostre botões para cadastrar ou entrar -->
+                      {% else %}
+                      <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#sobre">Quem Somos</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#planos">Nossos Planos</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Cadastre-se
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="/cadastrar_cliente">Como Paciente ou Aluno</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="/cadastrar_profissional">Como Profissional</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Entrar
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/login_cliente">Como Paciente ou Aluno</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/login_profissional">Como Profissional</a></li>
+                      </ul>
+                    </li>
+                      {% endif %}
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Olá, Seja bem-vindo!</div>
+            <div class="masthead-heading text-uppercase">SOMOS A ESPACIAL PSIEDU</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#servicos">Saiba mais</a>
+        </div>
+    </header>
+    <!-- Serviços -->
+    <section class="page-section" id="servicos">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Serviços</h2>
+                <br>
+                <br>
+                <br>
+                <br>
+                <!--<h3 class="section-subheading text-muted">Exemplo de descrição de curso</h3>-->
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa-solid fa-computer fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Atendimento</h4>
+                    <p class="text-muted">Buscar por especialistas das áreas de saúde mental e educação da sua região utilizando filtro de plano de saúde, tratamento e disponibilidade.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Cursos</h4>
+                    <p class="text-muted">Buscar por Cursos de sua áreas desejada com base no seu gosto e sua disponibilidade.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa-solid fa-user-group fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Grupo de Estudos</h4>
+                    <p class="text-muted">Criação de grupo de estudo para auxiliar de maneira interativa o aprendizado do cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quem Somos -->
+    <section class="page-section bg-white" id="sobre">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Quem Somos</h2>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/assets/img/sobre/1.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>2009-2011</h4>
+                            <h4 class="subheading">A proposta</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">É muito importante que o cliente fique atento ao processo de adipício. São tais que o sábio às vezes rejeita todos os seus prazeres, de onde deve ser recusado, mas eles também caem, e com que dor os louvadores são seguidos!</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/assets/img/sobre/2.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Março 2011</h4>
+                            <h4 class="subheading">O começo do projeto</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">É muito importante que o cliente fique atento ao processo de adipício. São tais que o sábio às vezes rejeita todos os seus prazeres, de onde deve ser recusado, mas eles também caem, e com que dor os louvadores são seguidos!</p></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/assets/img/sobre/3.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Dezembro 2015</h4>
+                            <h4 class="subheading">Anos no mercado</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">É muito importante que o cliente fique atento ao processo de adipício. São tais que o sábio às vezes rejeita todos os seus prazeres, de onde deve ser recusado, mas eles também caem, e com que dor os louvadores são seguidos!</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/assets/img/sobre/4.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Julho 2020</h4>
+                            <h4 class="subheading">Sempre com o próposito de ajudar você</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">É muito importante que o cliente fique atento ao processo de adipício. São tais que o sábio às vezes rejeita todos os seus prazeres, de onde deve ser recusado, mas eles também caem, e com que dor os louvadores são seguidos!</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>
+                            Faça parte
+                            <br />
+                            da nossa 
+                            <br />
+                            História!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="planos page-section bg-light" id="planos">
+        <div class="container">
+  
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">NOSSOS PLANOS ASSINATURAS</h2>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+
+          <div class="row">
+  
+            <div class="col-lg-4 col-md-6">
+              <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Plano Bronze</h3>
+                <h4><sup>R$</sup>120,00<span> / mês</span></h4>
+                <ul>
+                  <li>Direito a cursos com até 20% de desconto</li>
+                  <li>Cadastro profissional em nossa plataforma </li>
+                  <li>Direito a um site totalmente voltado ao seu trabalho</li>
+                  <li>Direito a participar de eventos do Espacial Psi Edu com 20% de desconto</li>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Assinar</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+              <div class="box recommended" data-aos="zoom-in">
+                <span class="recommended-badge">Recomendado</span>
+                <h3>Plano Prata</h3>
+                <h4><sup>R$</sup>150,00<span> / mês</span></h4>
+                <ul>
+                    <li>Direito a cursos com até 40% de desconto</li>
+                    <li>Cadastro profissional em nossa plataforma</li>
+                    <li>Supervisão para atendimento terapêutico</li>
+                    <li>Consultório ou sala de aula on-line</li>
+                    <li>Agenda de marcação de consultas ou aulas</li>
+                    <li>Direito a um site totalmente voltado ao seu trabalho</li>
+                    <li>Direito a participar de eventos do Espacial Psi Edu com 40% de desconto</li>
+                    <br>
+                    <br>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Assinar</a>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+              <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                <h3>Plano Ouro</h3>
+                <h4><sup>R$</sup>R$180,00<span> / mês</span></h4>
+                <ul>
+                  <li>Direito a cursos com até 70% de desconto</li>
+                  <li>Cadastro profissional em nossa plataforma</li>
+                  <li>Supervisão para atendimento terapêutico</li>
+                  <li>Consultório ou sala de aula on-line</li>
+                  <li>Agenda de marcação de consultas ou aulas</li>
+                  <li>Grupos de estudo</li>
+                  <li>Direito a um site totalmente voltado ao seu trabalho</li>
+                  <li>Direito a participar de eventos do Espacial Psi Edu com 100% de desconto</li>
+                </ul>
+                <div class="btn-wrap">
+                  <a href="#" class="btn-buy">Assinar</a>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End planos Section -->
+      
+    <!-- Fale Conosco -->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Fale Conosco</h2>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <!-- Integrado com o  SB Forms.-->
+            <!-- Tem que acessar para pegar um API Token e fazer funcional -->
+            <!-- https://startbootstrap.com/solution/contact-forms-->
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Inserir o nome -->
+                            <input class="form-control" id="name" type="text" placeholder="Nome *" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">Por favor, insira seu nome.</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Inserir o e-mail-->
+                            <input class="form-control" id="email" type="email" placeholder="Email *" data-sb-validations="required,email" />
+                            <div class="invalid-feedback" data-sb-feedback="email:required">Por favor, insira seu e-mail.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">E-mail inválido.</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <!-- Inserir o telefone -->
+                            <input class="form-control" id="phone" type="tel" placeholder="Telefone *" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">Por favor, insira seu telefone.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Inserir a mensagem -->
+                            <textarea class="form-control" id="message" placeholder="Sua mensagem *" data-sb-validations="required"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">Por favor, insira sua mensagem.</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mensagem de sucesso -->
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center text-white mb-3">
+                        <div class="fw-bolder">Mensagem enviado com sucesso!</div>
+                    </div>
+                </div>
+                <!-- Mensagem de erro -->
+
+                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Mensagem não enviada, tente novamente.</div></div>
+                <!-- Botão de enviar -->
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Enviar</button></div>
+            </form>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">&copy; Projeto Espacial PsiEdu 2022</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Política de Privacidade</a>
+                    <a class="link-dark text-decoration-none" href="#!">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {%endblock%}
+ 

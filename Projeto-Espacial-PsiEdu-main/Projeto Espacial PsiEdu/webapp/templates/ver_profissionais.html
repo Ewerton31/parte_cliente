@@ -1,0 +1,38 @@
+{% extends 'base_cadastro.html' %}
+{% block title %} Visualizar Usuarios{% endblock %}
+{% block content %}
+
+  <h3> Tabela de Profissionais </h3>
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Nº de Registro</th>
+          <th scope="col">Especialidade</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Usuário</th>
+          <th scope="col">Senha</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in profissionais %}
+        <tr>
+          <th scope="row">{{i.id}}</th>
+              <td>{{i.nome_profissional}}</td>
+              <td>{{i.sobrenome_profissional}}</td>
+              <td>{{i.telefone_profissional}}</td>
+              <td>{{i.estado_profissional}}</td>
+              <td>{{i.n_registro}}</td>
+              <td>{{i.especialidade}}</td>
+              <td>{{i.email_profissional}}</td>
+              <td>{{i.usuario_profissional}}</td>
+              <td>{{i.senha_profissional}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
