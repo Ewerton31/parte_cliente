@@ -1,0 +1,76 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Adicionar Cursos {%endblock%}
+
+{%block content %}
+
+    <div class="container mt-5 mb-5">
+        <div class="card mb-5">
+            <div class="card-header text-white bg-primary">
+                Adicionar histórico profissional
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Sobre mim</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="sobre_mim" name="sobre_mim" rows="3" placeholder="Sobre mim*"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Experiência profissional</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="experiencia_profissao" name="experiencia_profissao" rows="3" placeholder="Experiência profissional*"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Formação acadêmica</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="formacao_academica" name="formacao_academica" rows="3" placeholder="Formação acadêmica*"></textarea>
+                    </div>
+                    <div class="wrapper">
+                        <div id="opcao">
+                          
+                        </div>
+                        <div class="d-grid gap-2 mt-3 d-md-flex justify-content-md-end controls">
+                            <a href="#" class="btn btn-success btn-sm" id="adicionar_campo"><i class="fa fa-plus"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm" id="remover_campo"><i class="fa fa-minus"></i></a>
+                          </div>
+                      </div>
+                      <hr>
+                    <button class="btn btn-success" type="submit">Adicionar</button>
+                    <a href="/portal_profissional" class="btn btn-primary" type="button">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var opcao = document.getElementById('opcao');
+        var adicionar_campo = document.getElementById('adicionar_campo');
+        var remover_campo = document.getElementById('remover_campo');
+        
+        adicionar_campo.onclick = function(){
+          var novoCampo = document.createElement('textarea');
+          novoCampo.setAttribute('style', 'white-space: pre-line')
+          novoCampo.setAttribute('id', 'formacao_academica')
+          novoCampo.setAttribute('name','formacao_academica');
+          novoCampo.setAttribute('class','form-control mb-3');
+          novoCampo.setAttribute('row','3');
+          novoCampo.setAttribute('placeholder','Formação acadêmica*');
+          
+          var novoCampo2 = document.createElement('textarea');
+          novoCampo2.setAttribute('style', 'white-space: pre-line')
+          novoCampo2.setAttribute('id', 'formacao_academica2')
+          novoCampo2.setAttribute('name','formacao_academica2');
+          novoCampo2.setAttribute('class','form-control mb-3');
+          novoCampo2.setAttribute('row','3');
+          novoCampo2.setAttribute('placeholder','Formação acadêmica2*');
+
+          opcao.appendChild(novoCampo);
+          opcao.appendChild(novoCampo2);
+        }
+        
+        remover_campo.onclick = function(){
+          var input_tags = opcao.getElementsByTagName('textarea');
+          if(input_tags.length > 0) {
+            opcao.removeChild(input_tags[(input_tags.length) - 1]);
+          }
+        }
+    </script>
+
+{%endblock%}
+

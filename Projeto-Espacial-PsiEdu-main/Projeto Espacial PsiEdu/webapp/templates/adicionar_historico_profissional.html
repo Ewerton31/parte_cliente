@@ -1,0 +1,115 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Adicionar histórico profissional {%endblock%}
+
+{%block content %}
+<link rel="stylesheet" href="/static/css/portal_profissional/formulario_historico.css">
+    <!-- <div class="container mt-5 mb-5">
+        <div class="card mb-5">
+            <div class="card-header text-white bg-primary">
+                Adicionar histórico profissional
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Sobre mim</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="sobre_mim" name="sobre_mim" rows="3" placeholder="Sobre mim*"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Experiência profissional</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="experiencia_profissao" name="experiencia_profissao" rows="3" placeholder="Experiência profissional*"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Formação acadêmica</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="formacao_academica" name="formacao_academica" rows="3" placeholder="Formação acadêmica*"></textarea>
+                    </div> -->
+                      <!-- <hr>
+                    <button class="btn btn-success" type="submit">Adicionar</button>
+                    <a href="/portal_profissional" class="btn btn-primary" type="button">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+    <form method="POST" class="form mt-5 shadow" id="forms">
+    
+        <div class="progressbar">
+          <div class="progress" id="progress"></div>
+          
+          <div class="progress-step progress-step-active" data-title="Geral"></div>
+          <div class="progress-step" data-title="Experiência"></div>
+          <div class="progress-step" data-title="Social"></div>
+        </div>
+        <div class="step-forms step-forms-active">
+            <p class="mb-4">Oi, {{current_user.nome_profissional}}! Nos conte um pouco sobre você.</p>
+          <div class="group-inputs">
+            <label>Sobre mim</label>
+            <textarea style="white-space: pre-line" class="form-control" id="sobre_mim" name="sobre_mim" rows="3"></textarea>
+          </div>
+          <div class="group-inputs">
+            <label>Idiomas (Opcional)</label>
+            <textarea style="white-space: pre-line" class="form-control" id="idioma" name="idioma" rows="3"></textarea>
+          </div>
+          <div>
+            <a href="#" class="btn btn-primary btn-next width-50 mx-auto">Próximo</a>
+          </div>
+        </div>
+
+
+
+        <div class="step-forms">
+            <p class="mb-4">Fale um pouco da sua experiência profissional.</p>
+            <div class="group-inputs">
+                <div class="wrapper">
+                    <textarea style="white-space: pre-line" class="form-control mb-3" id="formacao_academica" name="formacao_academica" rows="3"></textarea>
+                    <div id="opcao">
+                        <label>Formação acadêmica</label>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end controls">
+                        <a href="#" class="btn btn-info btn-sm" id="adicionar_campo" title="Adicionar campo de formação acadêmica"><i class="fa fa-plus"></i></a>
+                        <a href="#" class="btn btn-danger btn-sm" id="remover_campo" title="Deletar campo de formação acadêmica"><i class="fa fa-minus"></i></a>
+                      </div>
+                  </div>
+              </div>
+          <div class="group-inputs">
+            <label>Experiência profissional</label>
+            <textarea style="white-space: pre-line" class="form-control" id="experiencia_profissao" name="experiencia_profissao" rows="3"></textarea>
+          </div>
+          
+          <div class="btns-group">
+            <a href="#" class="btn btn-outline-primary btn-prev">Voltar</a>
+            <a href="#" class="btn btn-primary btn-next">Próximo</a>
+          </div>
+        </div>
+
+
+        <div class="step-forms">
+            <div class="group-inputs">
+              <label for="">Facebook</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+              <label for="">Twitter</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+              <label for="">Linkedin</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+              <label for="">Instagram</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+                <label for="">Outros</label>
+                <input type="text" name="" id="" />
+              </div>
+            <div class="btns-group">
+              <a href="#" class="btn btn-outline-primary btn-prev">Voltar</a>
+              <!-- <input type="submit" value="Adicionar" id="submit-form" class="btn btn-primary"/> -->
+              <button class="btn btn-success" type="submit">Salvar</button>
+            </div>
+          </div>
+      </form>
+
+      <script src="/static/js/portal_profissional/formulario_historico.js"></script>
+{%endblock%}
+

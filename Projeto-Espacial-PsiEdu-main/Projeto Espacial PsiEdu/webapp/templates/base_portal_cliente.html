@@ -65,10 +65,9 @@
                       {{current_user.nome_cliente}} (@{{current_user.sobrenome_cliente}})
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a href="/{{current_user.usuario_cliente}}" class="nav-link">Perfil</a></li>
-                      <li><a href="#" class="nav-link">Agenda</a></li>
-                      <li><a href="/editar_perfil_cliente/{{current_user.id}}" class="nav-link">Configurações</a></li>
-                      <li><a href="/alterar_senha/{{current_user.id}}" class="nav-link">Alterar Senha</a></li>
+                      <li><a href="/{{current_user.nome_cliente}}" class="nav-link">Perfil</a></li>
+                      <li><a href="/editar_perfil_cliente/{{current_user.id}}" class="nav-link">Configurações de Cliente</a></li>
+                      <li><a href="/alterar_senha_cliente/{{current_user.id}}" class="nav-link">Alterar Senha</a></li>
                       <li><hr class="dropdown-divider"></li>
                       <li><a href="/sair_cliente" class="nav-link">Sair</a></li>
                     </ul>

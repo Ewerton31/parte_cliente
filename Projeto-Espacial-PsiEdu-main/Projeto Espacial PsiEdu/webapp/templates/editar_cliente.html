@@ -1,4 +1,4 @@
-{% extends 'base_cadastro.html' %} {% block title %} Editar perfil - {{editar_profissional.nome_profissional}} {%endblock%}
+{% extends 'base_cadastro_cliente.html' %} {% block title %} Editar perfil - {{editar_cliente.nome_cliente}} {%endblock%}
     
     {%block content %} 
     {% if id == current_user.id %}
@@ -9,60 +9,61 @@
                     <h3 class="form-title">Editar perfil</h3>
                     <form method="POST" class="register-form" id="register-form">
                         <div class="form-group">
-                            <label for="nomeProfissional"><i class="bi bi-person-fill"></i></label>
-                            <input type="text" name="nome_profissional" id="nome_profissional" placeholder="Nome*" value="{{editar_profissional.nome_profissional}}"/>
-                        </div>
-                          <div class="form-group">
-                            <label for="sobrenomeProfissional"><i class="bi bi-person"></i></label>
-                            <input type="text" name="sobrenome_profissional" id="sobrenome_profissional" placeholder="Sobrenome*" value="{{editar_profissional.sobrenome_profissional}}"/>
+                            <label for="nomeCliente"><i class="bi bi-person-fill"></i></label>
+                            <input type="text" name="nome_cliente" id="nome_cliente" placeholder="Nome*" value="{{editar_cliente.nome_cliente}}"/>
                         </div>
                         <div class="form-group">
-                            <label for="telefoneProfissional"><i class="bi bi-telephone-fill"></i></label>
-                            <input type="text" maxlength="15" name="telefone_profissional" id="telefone_profissional" placeholder="Telefone*" value="{{editar_profissional.telefone_profissional}}">
-                            <!-- onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" -->
+                          <label for="sobrenomeCliente"><i class="bi bi-person-fill"></i></label>
+                          <input type="text" name="sobrenome_cliente" id="sobrenome_cliente" placeholder="Sobrenome*" value="{{editar_cliente.sobrenome_cliente}}"/>
                         </div>
-                        <select class="form-select" aria-label="estado_profissional" style="width:60%" id="estado_profissional" name="estado_profissional">
-                          <option value="{{editar_profissional.estado_profissional}}" selected>{{editar_profissional.estado_profissional}}</option>
-                          <option value="AC">Acre</option>
-                          <option value="AL">Alagoas</option>
-                          <option value="AP">Amapá</option>
-                          <option value="AM">Amazonas</option>
-                          <option value="BA">Bahia</option>
-                          <option value="CE">Ceará</option>
-                          <option value="DF">Distrito Federal</option>
-                          <option value="ES">Espírito Santo</option>
-                          <option value="GO">Goiás</option>
-                          <option value="MA">Maranhão</option>
-                          <option value="MT">Mato Grosso</option>
-                          <option value="MS">Mato Grosso do Sul</option>
-                          <option value="MG">Minas Gerais</option>
-                          <option value="PA">Pará</option>
-                          <option value="PB">Paraíba</option>
-                          <option value="PR">Paraná</option>
-                          <option value="PE">Pernambuco</option>
-                          <option value="PI">Piauí</option>
-                          <option value="RJ">Rio de Janeiro</option>
-                          <option value="RN">Rio Grande do Norte</option>
-                          <option value="RS">Rio Grande do Sul</option>
-                          <option value="RO">Rondônia</option>
-                          <option value="RR">Roraima</option>
-                          <option value="SC">Santa Catarina</option>
-                          <option value="SP">São Paulo</option>
-                          <option value="SE">Sergipe</option>
-                          <option value="TO">Tocantins</option>
-                          <option value="EX">Estrangeiro</option>
+                        <!-- <div class="form-group">
+                          <label for="idadeCliente"><i class="bi bi-calendar-event"></i></label>
+                          <input type="date" name="idade_cliente" id="idade_cliente"/>
+                        </div> -->
+                    <div class="form-group">
+                      <label for="telefoneCliente"><i class="bi bi-telephone-fill"></i></label>
+                      <input type="text" maxlength="11" name="telefone_cliente" id="telefone_cliente" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="Telefone*" value="{{editar_cliente.telefone_cliente}}">
+                    </div>
+                    <div class="form-group">
+                    <label for="idadeCliente"><i class="bi bi-calendar-event"></i></label>
+                    <input type="text" maxlength="3" name="idade_cliente" id="idade_cliente" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="Idade*" value="{{editar_cliente.idade_cliente}}">
+                    </div>
+                      <div class="form-group">
+                        <label for="emailCliente"><i class="bi bi-envelope-fill"></i></label>
+                        <input type="email" name="email_cliente" id="email_cliente" placeholder="E-mail*" value="{{editar_cliente.email_cliente}}"/>
+                      </div>
+                        <!--<div class="form-group">
+                            <label for="senhaCliente"><i class="bi bi-key-fill"></i></label>
+                            <input type="password" name="senha_cliente" id="senha_cliente" placeholder="Senha"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="senhaClienteConfirmar"><i class="bi bi-key"></i></label>
+                            <input type="password" name="senha_clienteConfirmar" id="senha_clienteConfirmar" placeholder="Confirme sua senha"/>
+                        </div>-->
+                        <select class="form-select" aria-label="cliente_recomendadoPagina" style="width:60%" name="cliente_recomendado" id="cliente_recomendado">
+                            <option value="{{editar_cliente.cliente_recomendadoPagina}}" selected>{{editar_cliente.cliente_recomendadoPagina}}</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Indicação">Indicação</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                        <br>
+                        <select class="form-select" aria-label="cliente_tipoAtendimento" style="width:60%" name="tipo_atendimento" id="tipo_atendimento">
+                            <option value="{{editar_cliente.cliente_tipoAtendimento}}" selected>{{editar_cliente.cliente_tipoAtendimento}}</option>
+                            <option value="Atendimento Psicológico">Atendimento Psicológico</option>
+                            <option value="Atendimento Psicopedagógico">Atendimento Psicopedagógico</option>
+                            <option value="Atendimento Psiquiátrico">Atendimento Psiquiátrico</option>
+                            <option value="Atendimento Psicanalítico">Atendimento Psicanalítico</option>
+                            <option value="Reforço Escolar">Reforço Escolar</option>
+                            <option value="Outros">Outros</option>
                         </select>
                         <br>
                         <div class="form-group">
-                            <label for="emailProfissional"><i class="bi bi-envelope-fill"></i></label>
-                            <input type="email" name="email_profissional" id="email_profissional" placeholder="E-mail*" value="{{editar_profissional.email_profissional}}"/>
+                          <textarea class="form-control" name="descricao_cliente" id="descricao_cliente" rows="2" placeholder="Descreva o motivo da sua procura*" value="{{editar_cliente.descricao_cliente}}"></textarea>
                         </div>
-                        <div class="form-group">
-                          <label for="usuario_profissional"><i class="bi bi-person-bounding-box"></i></label>
-                          <input type="text" name="usuario_profissional" id="usuario_profissional" placeholder="Usuário*" value="{{editar_profissional.usuario_profissional}}"/>
-                      </div>
-                        <a class="btn btn-primary" href="/portal_profissional" role="button">Voltar</a>
-                        <button type="submit" class="btn btn-primary">Editar</button>
+                          <a class="btn btn-primary" href="/portal_cliente" role="button">Voltar</a>
+                          <button type="submit" class="btn btn-primary">Editar</button>
                     </form>
                 </div>
                 <div class="signup-image">

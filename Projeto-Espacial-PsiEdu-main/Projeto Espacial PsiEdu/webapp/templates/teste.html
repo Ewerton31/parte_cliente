@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+  <title>Event Scheduler</title>
+</head>
+<body>
+  <form name= "evtForm" method="post" onsubmit="Validate()">
+    <input type=button value="Hide Shape" id= "ShapeButton" />
+    <div id='layer3'> This is your layer 3 I guess</div>
+  </form>
+
+  <script>
+    var action = 1; //make sure you declare this
+    document.getElementById('ShapeButton').onclick = function(){
+      toggleName(this, 'Hide Shape', "Show Shape"); shapeOpacity();
+    };
+
+    // the toggle name function (working)
+
+    function toggleName(el, message1, message2) {
+      if (!el || !message1 || !message2) {
+      return false;
+    }
+    var text = el.tagName.toLowerCase() == 'input' ? el.value : (el.textContent || el.innerText),
+        newText = text == message1 ? message2 : message1;
+
+    if (el.tagName.toLowerCase() == 'input') {
+      el.value = newText;
+    }
+    else {
+      el.firstChild.nodeValue = newText;
+    }
+  }
+
+
+   function shapeOpacity() {
+     if ( action == 1 ) {
+       document.getElementById('layer3').style.opacity = '0';
+       action = 2;
+     } else {
+       document.getElementById('layer3').style.opacity = '100';
+       action = 1;
+     }
+   }
+  </script>
+ </body>
+
+</html>

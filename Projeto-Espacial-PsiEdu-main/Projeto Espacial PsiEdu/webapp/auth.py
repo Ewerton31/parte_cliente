@@ -258,3 +258,51 @@ def portal_cliente():
             return render_template("portal_cliente.html", editar_cliente = editar_cliente)
     else:
         return render_template("portal_cliente.html",  editar_cliente = editar_cliente, id=id)
+
+@auth.route('/editar_perfil_cliente/<int:id>', methods=['GET', 'POST'])
+@login_required
+def editar_perfil_cliente(id):
+    editar_cliente = Cliente.query.get_or_404(id)
+    if request.method == "POST":
+        editar_cliente.nome_cliente = request.form.get('nome_cliente')
+        editar_cliente.sobrenome_cliente = request.form.get('sobrenome_cliente')
+        editar_cliente.telefone_cliente = request.form.get('telefone_cliente')
+        editar_cliente.idadeCliente = request.form.get('idadeCliente')
+        editar_cliente.email_cliente = request.form.get('email_cliente')
+        editar_cliente.cliente_recomendadoPagina = request.form.get('cliente_recomendadoPagina')
+        editar_cliente.cliente_tipoAtendimento = request.form.get('cliente_tipoAtendimento')
+        editar_cliente.descricao_cliente = request.form.get('descricao_cliente')
+        try:
+            db.session.commit()
+            flash("Perfil editado com sucesso.")
+            return render_template("editar_cliente.html", editar_cliente = editar_cliente, id=id)
+        except:
+            flash("Erro. Parece que houve um problema, tente novamente.")
+            return render_template("editar_cliente.html", editar_cliente = editar_cliente, id=id)
+    else:
+        return render_template("editar_cliente.html", editar_cliente = editar_cliente, id=id)
+
+@auth.route('/alterar_senha_cliente/<int:id>', methods=['GET', 'POST'])
+@login_required
+def alterar_senha_cliente(id):
+    # id = current_user.id
+    editar_cliente = Cliente.query.get_or_404(id)
+    if request.method == "POST":
+        editar_cliente.senha_cliente = generate_password_hash(request.form['senha_cliente'], method=('sha256'))
+        editar_cliente.senha_clienteConfirmar = request.form.get('senha_clienteConfirmar')
+        try:
+            db.session.commit()
+            flash("Perfil editado com sucesso.")
+            return render_template("alterar_senha_cliente.html", editar_cliente = editar_cliente, id=id)
+        except:
+            flash("Erro. Parece que houve um problema, tente novamente.")
+            return render_template("alterar_senha_cliente.html", editar_cliente = editar_cliente, id=id)
+    else:
+        return render_template("alterar_senha_cliente.html",  editar_cliente = editar_cliente, id=id)
+
+
+@auth.route('/sair_cliente')
+@login_required
+def sair_cliente():
+    logout_user()
+    return redirect(url_for('auth.sair_cliente'))
