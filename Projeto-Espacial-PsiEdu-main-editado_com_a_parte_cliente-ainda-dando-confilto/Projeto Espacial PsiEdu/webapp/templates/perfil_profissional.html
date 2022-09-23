@@ -1,0 +1,299 @@
+{% extends 'base_portal_profissional.html' %} {% block title %}  {%endblock%}
+
+{%block head %}
+<link href="/static/css/perfil.css" rel="stylesheet"/>
+{%endblock%}
+
+
+
+{%block content %} 
+<section class="candidates-profile-bg">
+        <div class="bg-overlay"></div>
+        <div class="container profile-page">
+            <div class="row">
+                <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-7 col-md-12">
+                    <div class="card profile-header">
+                        <div class="body">
+                            <div class="row ">
+                                <div class="col-lg-4 col-md-4 col-12">
+                                    {% if perfil_profissional.foto_profissional %}
+                                    <div class="profile-image float-md-right"> <img src="/static/assets/img/foto_perfil/{{perfil_profissional.foto_profissional}}" alt="Foto do profissional"> </div>
+                                    {% else %}
+                                    <div class="profile-image float-md-right"> <img src="/static/assets/img/sem_foto.png" alt="Foto do profissional"> </div>
+                                    {% endif %}
+
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-12">
+                                    {% for i in historico %}
+                                    {% if perfil_profissional.id  == i.profissional_id %}
+                                    {% if i.profissional_id == current_user.id %}
+                                    <a href="/editar_historico_profissional/{{i.id}}" class="btn btn-secondary btn-sm "  style="float:right;" type="button" title="Editar histórico profissional"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    {% endif %}
+                                    {% endif %}
+                                    {%endfor%}
+                                    <h4 class="m-t-0 m-b-0"><strong>{{perfil_profissional.nome_profissional}}</strong> {{perfil_profissional.sobrenome_profissional}}</h4>
+                                    <hr>
+                                    <p class="text-dark mb-2">{{perfil_profissional.endereco_profissional}}, {{perfil_profissional.estado_profissional}}</p>
+                                    <!-- <div>
+                                        <button class="btn btn-primary btn-round">Agendar</button>
+                                        <button class="btn btn-primary btn-round btn-simple">Avaliar</button>
+                                    </div> -->
+                                    <ul class="candidates-profile-icons list-inline mb-3 mt-3">
+                                        <li class="list-inline-item text-dark-50 pr-2 f-16">{{perfil_profissional.especialidade}}</li>
+                                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class="text-warning"><i class="mdi mdi-star"></i></a></li>
+                                    </ul>
+                                    
+                                    <ul class="candidates-profile-social-icons list-inline mb-0 mt-3">
+                                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-facebook"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-twitter"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-instagram"></i></a></li>
+                                        <li class="list-inline-item"><a href="#" class=""><i class="mdi mdi-google-plus"></i></a></li>
+                                    </ul>
+                                </div>                
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+</section>
+{% for i in historico %}
+{% if perfil_profissional.id  == i.profissional_id %}
+<section class="section"> 
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="job-detail p-3 cor-titulo shadow"><h5 class="mt-2">Sobre mim</h5></div>
+            <div class="job-detail shadow p-4">
+                
+                <div class="job-detail-desc ">
+                    <p class="text-muted f-14 mb-0">{{i.sobre_mim}}</p>
+                    <p class="text-muted f-14 mb-0">{{i.experiencia_profissao}}</p>
+
+                    <h5 class="mt-2">Idiomas</h5>
+                    <p class="text-muted f-14 mb-0">{{i.idioma}}</p>
+
+                </div>
+                <hr>
+                <ul class="list-inline mt-3 mb-0">
+                    <li class="list-inline-item mr-3">
+                        <span class="text-muted f-15 mb-0"><i class="mdi mdi-map-marker mr-2"></i>{{perfil_profissional.endereco_profissional}}, {{perfil_profissional.estado_profissional}}</span>
+                    </li>
+
+                    <li class="list-inline-item mr-3">
+                        <span class="text-muted f-15 mb-0"><i class="bi bi-postcard-fill mr-2"></i>{{perfil_profissional.n_registro}}</span>
+                    </li>
+
+                    <li class="list-inline-item mr-3">
+                        <span class="text-muted f-15 mb-0"><i class="mdi mdi-email mr-2"></i>{{perfil_profissional.email_profissional}}</span>
+                    </li>
+
+                    <li class="list-inline-item mr-3">
+                        <span class="text-muted f-15 mb-0"><i class="mdi mdi-cellphone-iphone mr-2"></i>{{perfil_profissional.telefone_profissional}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="row">
+        <div class="col-lg-12">
+            <h3 class="card-header text-dark mt-4">Resumo</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="job-detail mt-2 p-4">
+                <div class="job-detail-desc">
+                    <p class="text-muted f-14 mb-3">Cras dapibus Vivamus elementum semper nisi Aenean vulputate eleifend tellus Aenean leo ligula porttitor eu consequat vitae eleifend ac enim aliquam lorem ante dapibus in viverra quis feugiat a tellus phasellus viverra nulla ut metus variuse laoreet quisque rutrum aenean imperdiet etiam ultricies nisi that is maecenas tempus tini tellus eget condimentum rhoncus sem semper libero sit amet adipiscing sem neque sed ipsum nam quam nunc blandit vel luctus pulvinar hendrerit lorem maecenas nec odio et ante tincidunt tempus donec vitae libero venenatis faucibus nullam quis ante etiam sit amet orci eget eros faucibus tincidunt Duis leo Sed fringilla a mauris sit amet nibh donec sodales sagittis magna vel augue curabitur ullamcorper ultricies nisi nam eget dui etiame rhoncus ut enim as minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid commodi.</p>
+
+                    <p class="text-muted f-14 mb-0">Sed consequat eget bibendum augue cursus nunc quis gravida magna mi a Itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat liber fusce vulputate eleifend sapien vestibulum purus quam scelerisque ut mollis sed nonummy id metus nullam accumsan lorem in dui cras ultricies mi eu turpis hendrerit fringilla vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia in dui quis consectetuer lacinia nam pretium turpis arcu duis arcu tortor.</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="job-detail p-3 cor-titulo mt-5 mb-3 shadow"><h5 class="mt-2">Formação acadêmica</h5></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="job-detail candidates-profile-education text-center text-muted mb-5 mt-5 shadow" style="width: 100%;
+            height: 73%;">
+                <div class="profile-education-icon shadow">
+                    <i class="mdi mdi-school"></i>
+                </div>
+                <h6 class="text-uppercase f-17"><a href="#" class="text-muted">{{i.nome_instituicao}}</a></h6>
+                <p class="f-14 mb-1">{{i.data_inicio}} - {{i.data_termino}}</p>
+                <p class="f-14 mb-0">{{i.curso_academico}}</p>
+                <hr class="mt-2 mb-2">
+                <p class="f-14 mb-0">{{i.descricao_academica}}</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="job-detail candidates-profile-education text-center text-muted mb-5 mt-5 shadow" style="width: 100%;
+            height: 73%;">
+                <div class="profile-education-icon shadow">
+                    <i class="mdi mdi-library"></i>
+                </div>
+                <h6 class="text-uppercase f-17"><a href="#" class="text-muted">University Of USA</a></h6>
+                <p class="f-14 mb-1">May 2017 - April 2018</p>
+                <p class="f-14 mb-0">Diploma In Management</p>
+                <hr class="mt-2 mb-2">
+                <p class="f-14 mb-0">Suspendisse faucibus et pellentesque egestas lacus ante convallis.</p>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="job-detail candidates-profile-education text-center text-muted mb-5 mt-5 shadow" style="width: 100%;
+            height: 73%;">
+                <div class="profile-education-icon shadow">
+                    <i class="mdi mdi-briefcase-check"></i>
+                </div>
+                <h6 class="text-uppercase f-17"><a href="#" class="text-muted">University Of USA</a></h6>
+                <p class="f-14 mb-1">May 2018 - April 2019</p>
+                <p class="f-14 mb-0">Management Of Company</p>
+                <hr class="mt-2 mb-2">
+                <p class="f-14 mb-0">Suspendisse faucibus et pellentesque egestas lacus ante convallis.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="job-detail p-3 cor-titulo shadow"><h5 class="mt-2">Expêriencia Profissional</h5></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="job-detail job-list-box mt-4 p-4 shadow">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="company-brand-logo text-center mb-4">
+                            <img src="images/featured-job/img-2.png" alt="" class="img-fluid mx-auto d-block">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="job-list-desc candidates-profile-exp-desc">
+                            <h5 class="f-19 mb-2"><a href="#" class="text-dark">Web Themes Pvt.Ltd</a></h5>
+                            <p class="text-muted mb-0 f-16">PHP Developer</p>
+                            <p class="text-muted mb-0 f-16">Jan 2016 - Dec 2017</p>
+                            <p class="text-muted mb-0 f-16">Salary : $950</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.webthemesltd.co.in</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>1919 Ward Road West Nyack, NY 10994</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="job-detail job-list-box mt-4 p-4 shadow">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="company-brand-logo text-center mb-4">
+                            <img src="images/featured-job/img-3.png" alt="" class="img-fluid mx-auto d-block">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="job-list-desc candidates-profile-exp-desc">
+                            <h5 class="f-19 mb-2"><a href="#" class="text-dark">Web code Pvt.Ltd</a></h5>
+                            <p class="text-muted mb-0 f-16">Web Developer</p>
+                            <p class="text-muted mb-0 f-16">Fab 2015 - July 2018</p>
+                            <p class="text-muted mb-0 f-16">Salary : $1100</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.webcodeltd.co.in</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>519 Leo Street Butler, PA 16001</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="job-detail job-list-box mt-4 p-4 shadow">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="company-brand-logo text-center mb-4">
+                            <img src="images/featured-job/img-5.png" alt="" class="img-fluid mx-auto d-block">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="job-list-desc candidates-profile-exp-desc">
+                            <h5 class="f-19 mb-2"><a href="#" class="text-dark">Brand Themes Pvt.Ltd</a></h5>
+                            <p class="text-muted mb-0 f-16">PHP Developer</p>
+                            <p class="text-muted mb-0 f-16">Jan 2016 - Dec 2017</p>
+                            <p class="text-muted mb-0 f-16">Salary : $1000</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.brandthemesltd.co.in</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>519 Leo Street Butler, PA 16001</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="job-detail job-list-box mt-4 p-4 shadow">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="company-brand-logo text-center mb-4">
+                            <img src="images/featured-job/img-7.png" alt="" class="img-fluid mx-auto d-block">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="job-list-desc candidates-profile-exp-desc">
+                            <h5 class="f-19 mb-2"><a href="#" class="text-dark">Small Themes Pvt.Ltd</a></h5>
+                            <p class="text-muted mb-0 f-16">PHP Developer</p>
+                            <p class="text-muted mb-0 f-16">Jan 2016 - Dec 2017</p>
+                            <p class="text-muted mb-0 f-16">Salary : $900</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-bank mr-2"></i>www.smallthemesltd.co.in</p>
+                            <p class="text-muted mb-0 f-16"><i class="mdi mdi-map-marker mr-2"></i>519 Leo Street Butler, PA 16001</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+{% endif %}
+{%endfor%}
+
+{% if not perfil_profissional.historico_profissional %}
+
+<section>
+    <div class="col text-center"><i class="fa-solid fa-face-frown-open fa-5x"></i></div>
+      <br>
+      <h5 class="text-center">Ops... Parece que o {{perfil_profissional.nome_profissional}} não personalizou o perfil até agora.</h5>
+      <h5 class="text-center">Volte mais tarde!</h5>
+      <br>
+      {% if perfil_profissional.id == current_user.id %}
+      <div class="col text-center">
+           <a href="/adicionar_historico_profissional" class="btn btn-success btn mb-3" type="button">Adicionar histórico profissional</a>
+      </div>
+     {% endif %}
+      <div class="col text-center">
+          <a href="/" class="btn btn-primary" ><i class="fa-solid fa-house"></i> Voltar para o ínicio</a> 
+      </div>
+    </section>  
+{% endif %}
+
+{%endblock%}

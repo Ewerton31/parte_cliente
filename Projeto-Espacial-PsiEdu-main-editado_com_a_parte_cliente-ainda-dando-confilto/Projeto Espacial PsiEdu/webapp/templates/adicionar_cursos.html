@@ -1,0 +1,83 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Adicionar Cursos {%endblock%}
+
+{%block content %}
+
+    <div class="container mt-5 mb-5">
+        <div class="card mb-5">
+            <div class="card-header text-white bg-primary">
+                Adicionar cursos ou aulas
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="small mb-1" for="curso">Nome</label>
+                        <input class="form-control" type="text" name="nome_curso" id="nome_curso" placeholder="Nome do curso*" required/>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="">Sobre</label>
+                            <textarea style="white-space: pre-line" class="form-control" type="text" name="sobre_curso" id="sobre_curso" rows="3" placeholder="Sobre o curso*" required></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="">Categoria</label>
+                            <select class="form-select" aria-label="categoria_curso" id="categoria_curso" name="categoria_curso">
+                                <option selected>Selecione uma opção*</option>
+                                <option value="Curso">Curso</option>
+                                <option value="Aula">Aula</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="">Carga horária</label>
+                            <input class="form-control" id="carga_horaria" name="carga_horaria" type="text" placeholder="Carga horária do curso*">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="">Possui certificado?</label>
+                            <select class="form-select" aria-label="possui_certificado" id="possui_certificado" name="possui_certificado">
+                                <option selected>Selecione uma opção*</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Programa</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="conteudo_curso" name="conteudo_curso" rows="3" placeholder="Programa do curso*"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Cronograma</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="cronograma_curso" name="cronograma_curso" rows="3" placeholder="Cronograma do curso*"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Bibliografia</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="bibliografia_curso" name="bibliografia_curso" rows="3" placeholder="Bibliografia do curso*"></textarea>
+                    </div>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="">Preço</label>
+                            <input class="form-control" id="preco_curso" name="preco_curso" type="text" placeholder="Preço do curso*">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="">Método de pagamento</label>
+                            <textarea style="white-space: pre-line" class="form-control" id="metodo_pagamento" name="metodo_pagamento" rows="3" placeholder="Métodos de pagamentos do curso*"></textarea>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-success" type="submit">Adicionar</button>
+                    <a href="/meus_servicos" class="btn btn-primary" type="button">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}
+
+<!-- {%block script %}   
+<script>
+    $(document).ready(function(){
+        console.log("carregou")
+        $("#modal").modal("show")
+    })
+</script>
+{%endblock%} -->

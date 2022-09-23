@@ -1,0 +1,51 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Alterar Senha - {{editar_profissional.nome_profissional}} {%endblock%}
+    {%block content %} 
+    {% if id == current_user.id %}
+    
+    <div class="col-xl-6 mx-auto mt-5">
+        <!-- Alterar Senha -->
+        <div class="card mb-6" style=" background: #fff">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/alterar_senha/{{current_user.id}}">Alterar Senha</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/editar_perfil_profissional/{{current_user.id}}">Perfil</a>
+                  </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <!-- Nova Senha -->
+                    <div class="mb-3">
+                        <label class="small mb-1" for="senha_profissional">Nova Senha</label>
+                        <input class="form-control" type="password" name="senha_profissional" id="senha_profissional" placeholder="Nova Senha*" required/>
+                    </div>
+                    <!-- Confirmar Senha  -->
+                    <div class="mb-3">
+                        <label class="small mb-1" for="senha_profissionalConfirmar">Confirmar Nova Senha</label>
+                        <input class="form-control" type="password" name="senha_profissionalConfirmar" id="senha_profissionalConfirmar" placeholder="Confirme sua nova senha*" required/>
+                    </div>
+                    <!-- Alterar botão -->
+                    <button class="btn btn-success" type="submit">Alterar</button>
+                    <a href="/portal_profissional" class="btn btn-primary" type="button">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+      {% else %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           Você não tem permissão para acessar essa página.
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+     
+         <h2>Acesso negado.</h2>
+         <p>Você não pode acessar a página deste usuário.</p>
+     
+     {% endif %}
+     
+     
+     {% endblock %}
+
+

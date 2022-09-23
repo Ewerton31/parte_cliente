@@ -1,0 +1,84 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Portal Profissional {%endblock%}
+
+{%block content %}
+
+<section>
+<div style="text-align:center;"> 
+    <h2>Bem-vindo, {{current_user.nome_profissional}}!</h2>
+</div>
+<br />
+
+<div class="container"> 
+	<div class="row d-flex justify-content-center ">
+		
+		 <div class="col-md-9"> 
+			<div class="card p-4 mt-3"> 
+			<h3 class="heading mt-5 text-center"> O que deseja fazer hoje?</h3> 
+			<div class="d-flex justify-content-center px-5"> 
+				<div class="search"> 
+					<form method="POST" class="d-flex" role="search" action="/buscar"> 
+						<input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar" name="buscado", id="buscado">
+						<button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+					</form>
+				</div> 
+				</div> 
+				<div class="row mt-4 g-1 px-4 mb-5"> 
+					<div class="col-md-2"> 
+					<a href="/{{current_user.usuario_profissional}}">
+					<div class="card-inner p-3 d-flex flex-column align-items-center"> 
+						<i class="fa-solid fa-user fa-2x"></i>
+						<div class="text-center mg-text mt-2"> 
+							<span class="mg-text">Meu <br> Perfil</span> 
+						</div> 
+					</div> 
+					</a>
+				</div> 
+							<div class="col-md-2"> 
+								<div class="card-inner p-3 d-flex flex-column align-items-center">
+									<i class="fa-solid fa-money-bill fa-2x"></i> 
+									<div class="text-center mg-text mt-2"> 
+										<span class="mg-text">Meus Pagamentos</span> 
+									</div> 
+								</div> 
+							</div> 
+							<div class="col-md-2">
+								<a href="meus_servicos">
+										 <div class="card-inner p-3 d-flex flex-column align-items-center"> 
+											
+											<i class="fa-solid fa-briefcase fa-2x"></i>
+											<div class="text-center mg-text mt-2"> <span class="mg-text">Meus Serviços</span> 
+											</div> 
+										</div> 
+									</a>
+									</div> 
+									<div class="col-md-2"> 
+												<div class="card-inner p-3 d-flex flex-column align-items-center"> 
+													<i class="fa-regular fa-calendar fa-2x"></i>
+													<div class="text-center mg-text mt-2"> 
+														<span class="mg-text">Minha Agenda</span> 
+													</div> 
+												</div> 
+											</div> 
+											<div class="col-md-2"> 
+														<div class="card-inner p-3 d-flex flex-column align-items-center"> 
+															<i class="fa-solid fa-comment fa-2x"></i>
+															<div class="text-center mg-text mt-2"> <span class="mg-text">Minhas Conversas</span> 
+															</div> 
+														</div> 
+													</div> 
+													<div class="col-md-2"> 
+																<div class="card-inner p-3 d-flex flex-column align-items-center"> 
+																	<i class="fa-solid fa-headset fa-2x"></i>
+																	<div class="text-center mg-text mt-2"> 
+																		<span class="mg-text">Consultar Suporte</span> 
+																	</div>
+																</div> 
+															</div> 
+														</div> 
+													</div> 
+												</div> 
+											</div> 
+										</div>
+</section>
+
+{%endblock%}

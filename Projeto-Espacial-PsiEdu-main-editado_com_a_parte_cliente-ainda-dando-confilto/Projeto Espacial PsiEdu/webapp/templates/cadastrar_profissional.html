@@ -1,0 +1,104 @@
+
+{% extends 'base_cadastro.html' %} {% block title %} Cadastre-se - Profissional {%endblock%}
+
+    {%block content %} 
+
+    <div style="padding-top:5%;">
+          <div class="container">
+              <div class="signup-content">
+                  <div class="signup-form">
+                      <h3 class="form-title">Cadastre-se como profissional</h3>
+                      <form method="POST" class="register-form" id="register-form">
+                          <div class="form-group">
+                              <label for="nomeProfissional"><i class="bi bi-person-fill"></i></label>
+                              <input type="text" name="nome_profissional" id="nome_profissional" placeholder="Nome*"/>
+                          </div>
+                            <div class="form-group">
+                              <label for="sobrenomeProfissional"><i class="bi bi-person"></i></label>
+                              <input type="text" name="sobrenome_profissional" id="sobrenome_profissional" placeholder="Sobrenome*"/>
+                          </div>
+                          <div class="form-group">
+                              <label for="telefoneProfissional"><i class="bi bi-telephone-fill"></i></label>
+                              <input type="text" maxlength="15" name="telefone_profissional" id="telefone_profissional" placeholder="Telefone*">
+                              <!-- onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" -->
+                          </div>
+                          <div class="form-group">
+                            <textarea class="form-control" name="endereco_profissional" id="endereco_profissional" rows="3" placeholder="Endereço"></textarea>
+                        </div>
+                          <select class="form-select" aria-label="estado_profissional" style="width:60%" id="estado_profissional" name="estado_profissional">
+                            <option selected>Selecione seu estado*</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                            <option value="EX">Estrangeiro</option>
+                          </select>
+                          <br>
+                          <div class="form-group">
+                            <label for="numeroRegistro"><i class="bi bi-postcard-fill"></i></label>
+                            <input type="text" name="n_registro" id="n_registro" placeholder="Número de registro (ex: CRM, CRP, CRO)*"/>
+                        </div>
+                        <select class="form-select" aria-label="especialidade" style="width:60%" id="especialidade" name="especialidade">
+                            <option selected>Selecione sua profissão*</option>
+                            <option value="Psicológo">Psicológo</option>
+                            <option value="Psicopedagógo">Psicopedagógo</option>
+                            <option value="Psiquiátra">Psiquiátra</option>
+                            <option value="Psicanalista">Psicanalista</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Outros">Outros</option>
+                          </select>
+                          <br>
+                          <div class="form-group">
+                              <label for="emailProfissional"><i class="bi bi-envelope-fill"></i></label>
+                              <input type="email" name="email_profissional" id="email_profissional" placeholder="E-mail*"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="usuario_profissional"><i class="bi bi-person-bounding-box"></i></label>
+                            <input type="text" name="usuario_profissional" id="usuario_profissional" placeholder="Usuário*"/>
+                        </div>
+                          <div class="form-group">
+                              <label for="senhaProfissional"><i class="bi bi-key-fill"></i></label>
+                              <input type="password" name="senha_profissional" id="senha_profissional" placeholder="Senha*"/>
+                          </div>
+                          <div class="form-group">
+                              <label for="senhaProfissionalConfirmar"><i class="bi bi-key"></i></label>
+                              <input type="password" name="senha_profissionalConfirmar" id="senha_profissionalConfirmar" placeholder="Confirme sua senha*"/>
+                          </div>
+                          <a class="btn btn-primary" href="/" role="button">Voltar</a>
+                          <button type="submit" class="btn btn-primary">Cadastrar</button>
+                      </form>
+                  </div>
+                  <div class="signup-image">
+                    <img src="/static/assets/img/psico_terapia.jpg" alt="logar na conta">
+                      <a href="#" class="signup-image-link">Já possui uma conta?</a>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+      {%endblock%}
+
+

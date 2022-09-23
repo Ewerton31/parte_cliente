@@ -1,0 +1,79 @@
+
+{% extends 'base_cadastro.html' %} {% block title %} Cadastre-se - Paciente ou Aluno {%endblock%}
+    
+    {%block content %} 
+
+    <div style="padding-top:5%;">
+          <div class="container">
+              <div class="signup-content">
+                  <div class="signup-form">
+                      <h3 class="form-title">Cadastre-se como cliente</h3>
+                      <form method="POST" class="register-form" id="register-form">
+                          <div class="form-group">
+                              <label for="nomeCliente"><i class="bi bi-person-fill"></i></label>
+                              <input type="text" name="nome_cliente" id="nome_cliente" placeholder="Nome"/>
+                          </div>
+                          <div class="form-group">
+                            <label for="sobrenomeCliente"><i class="bi bi-person-fill"></i></label>
+                            <input type="text" name="sobrenome_cliente" id="sobrenome_cliente" placeholder="Sobrenome"/>
+                          </div>
+                          <!-- <div class="form-group">
+                            <label for="idadeCliente"><i class="bi bi-calendar-event"></i></label>
+                            <input type="date" name="idade_cliente" id="idade_cliente"/>
+                        </div> -->
+                      <div class="form-group">
+                        <label for="telefoneCliente"><i class="bi bi-telephone-fill"></i></label>
+                        <input type="text" maxlength="11" name="telefone_cliente" id="telefone_cliente" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="Telefone">
+                      </div>
+                      <div class="form-group">
+                      <label for="idadeCliente"><i class="bi bi-calendar-event"></i></label>
+                      <input type="text" maxlength="3" name="idade_cliente" id="idade_cliente" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;" placeholder="Idade">
+                      </div>
+                        <div class="form-group">
+                          <label for="emailCliente"><i class="bi bi-envelope-fill"></i></label>
+                          <input type="email" name="email_cliente" id="email_cliente" placeholder="E-mail"/>
+                        </div>
+                          <div class="form-group">
+                              <label for="senhaCliente"><i class="bi bi-key-fill"></i></label>
+                              <input type="password" name="senha_cliente" id="senha_cliente" placeholder="Senha"/>
+                          </div>
+                          <div class="form-group">
+                              <label for="senhaClienteConfirmar"><i class="bi bi-key"></i></label>
+                              <input type="password" name="senha_clienteConfirmar" id="senha_clienteConfirmar" placeholder="Confirme sua senha"/>
+                          </div>
+                          <select class="form-select" aria-label="cliente_recomendadoPagina" style="width:60%" name="cliente_recomendado" id="cliente_recomendado">
+                            <option selected>Como nos conheceu?</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Indicação">Indicação</option>
+                            <option value="Outros">Outros</option>
+                          </select>
+                          <br>
+                          <select class="form-select" aria-label="cliente_tipoAtendimento" style="width:60%" name="tipo_atendimento" id="tipo_atendimento">
+                            <option selected>Selecione o que está buscando</option>
+                            <option value="Atendimento Psicológico">Atendimento Psicológico</option>
+                            <option value="Atendimento Psicopedagógico">Atendimento Psicopedagógico</option>
+                            <option value="Atendimento Psiquiátrico">Atendimento Psiquiátrico</option>
+                            <option value="Atendimento Psicanalítico">Atendimento Psicanalítico</option>
+                            <option value="Reforço Escolar">Reforço Escolar</option>
+                            <option value="Outros">Outros</option>
+                          </select>
+                          <br>
+                          <div class="form-group">
+                            <textarea class="form-control" name="descricao_cliente" id="descricao_cliente" rows="2" placeholder="Descreva o motivo da sua procura"></textarea>
+                          </div>
+                            <a class="btn btn-primary" href="/" role="button">Voltar</a>
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        </form>
+                  </div>
+                  <div class="signup-image">
+                    <img src="/static/assets/img/psico_terapia.jpg" alt="Já possui uma conta?">
+                      <a href="#" class="signup-image-link">Já possui uma conta?</a>
+                  </div>
+              </div>
+          </div> 
+      </div>
+      {%endblock%}
+
+

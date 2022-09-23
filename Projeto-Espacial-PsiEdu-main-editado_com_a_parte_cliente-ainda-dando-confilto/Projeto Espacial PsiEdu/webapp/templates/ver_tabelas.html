@@ -1,0 +1,81 @@
+{% extends 'base_cadastro.html' %}
+{% block title %} Visualizar Usuarios{% endblock %}
+{% block content %}
+
+<div>
+  <br>
+  <h3 style="text-align: center"> Tabela de Profissionais </h3>
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sobrenome</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Nº de Registro</th>
+          <th scope="col">Especialidade</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Usuário</th>
+          <th scope="col">Senha</th>
+          <th scope="col">Foto Perfil</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in profissionais %}
+        <tr>
+          <th scope="row">{{i.id}}</th>
+              <td>{{i.nome_profissional}}</td>
+              <td>{{i.sobrenome_profissional}}</td>
+              <td>{{i.telefone_profissional}}</td>
+              <td>{{i.endereco_profissional}}</td>
+              <td>{{i.estado_profissional}}</td>
+              <td>{{i.n_registro}}</td>
+              <td>{{i.especialidade}}</td>
+              <td>{{i.email_profissional}}</td>
+              <td>{{i.usuario_profissional}}</td>
+              <td>{{i.senha_profissional}}</td>
+              <td>{{i.foto_profissional}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+<div>
+  <br>
+    <h3 style="text-align: center"> Tabela de Cursos </h3>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobre</th>
+            <th scope="col">Carga Horária</th>
+            <th scope="col">Possui Certificado?</th>
+            <th scope="col">Conteúdo</th>
+            <th scope="col">Cronograma</th>
+            <th scope="col">Bibliografia</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Métodos de pagamento</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in cursos %}
+          <tr>
+            <th scope="row">{{i.id}}</th>
+                <td>{{i.nome_curso}}</td>
+                <td>{{i.sobre_curso}}</td>
+                <td>{{i.carga_horaria}}</td>
+                <td>{{i.possui_certificado}}</td>
+                <td>{{i.conteudo_curso}}</td>
+                <td>{{i.cronograma_curso}}</td>
+                <td>{{i.bibliografia_curso}}</td>
+                <td>{{i.preco_curso}}</td>
+                <td>{{i.metodo_pagamento}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}

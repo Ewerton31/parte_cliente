@@ -1,0 +1,160 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Editar perfil - {{editar_profissional.nome_profissional}} {%endblock%}
+ 
+
+    {%block content %}
+    {% if id == current_user.id %}
+    <div class="container-xl px-4 mt-5">   
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Foto de perfil-->
+                <div class="card mb-4 mb-xl-0 " style=" background: #fff">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs ">
+                          <li class="nav-item ">
+                            <a class="nav-link active " href="/editar_perfil_profissional/{{current_user.id}}">Perfil</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/alterar_senha/{{current_user.id}}">Alterar Senha</a>
+                          </li>
+                        </ul>
+                    </div>
+                <!-- Formulário para editar  -->
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="card-body text-center">
+                        {% if current_user.foto_profissional %}
+                        <img class="rounded-circle mb-2" style="height: 10rem;" src="/static/assets/img/foto_perfil/{{current_user.foto_profissional}}" alt="Foto de Perfil">
+                        <div class="small font-italic text-muted mb-4">Arquivos JPG ou PNG</div>
+                        {%else%}
+                        <img class="rounded-circle mb-2" style="height: 10rem;" src="/static/assets/img/sem_foto.png" alt="Foto de Perfil">
+                        <div class="small font-italic text-muted mb-4">Arquivos JPG ou PNG</div>
+                        {%endif%}
+                        <!-- Botão de carregar imagem -->
+                        <div class="input-group">
+                            <input type="file" accept=".jpg,.png" class="form-control" id="foto_profissional" name="foto_profissional" aria-describedby="foto_profissional" aria-label="Upload">
+                            <button class="btn btn-primary" type="submit">Enviar</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8">
+                <!-- Detalhes da conta-->
+                <div class="card mb-4" style=" background: #fff">
+                    <div class="card-header text-white bg-primary">Detalhes da conta</div>
+                    <div class="card-body">
+                            <!-- Usuário -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="usuario_profissional">Usuário</label>
+                                <input class="form-control" id="usuario_profissional" name="usuario_profissional" type="text" placeholder="Usuário" value="{{editar_profissional.usuario_profissional}}">
+                            </div>
+                            <!-- Linha -->
+                            <div class="row gx-3 mb-3">
+                                <!-- Nome -->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="nome_profissional">Nome</label>
+                                    <input class="form-control" id="nome_profissional" name="nome_profissional" type="text" placeholder="Nome" value="{{editar_profissional.nome_profissional}}">
+                                </div>
+                                <!-- Sobrenome -->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="sobrenome_profissional">Sobrenome</label>
+                                    <input class="form-control" id="sobrenome_profissional" name="sobrenome_profissional" type="text" placeholder="Sobrenome" value="{{editar_profissional.sobrenome_profissional}}">
+                                </div>
+                            </div>
+                            <!-- Linha -->
+                            <div class="row gx-3 mb-3">
+                                <!-- Especialidade -->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="especialidade">Especialidade</label>
+                                    <input class="form-control" id="especialidade" name="especialidade" type="text" placeholder="Especialidade" value="{{editar_profissional.especialidade}}" readonly>
+                                </div>
+                                <!-- Número de Registro -->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="n_registro">Número de Registro</label>
+                                    <input class="form-control" id="n_registro" name="n_registro" type="text" placeholder="Número de Registro" value="{{editar_profissional.n_registro}}" readonly>
+                                </div>
+                            </div>
+                            <!-- E-mail -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="email_profissional">E-mail</label>
+                                <input class="form-control" id="email_profissional" name="email_profissional" type="email" placeholder="E-mail" value="{{editar_profissional.email_profissional}}">
+                            </div>
+                            <!-- Endereço fixo -->
+                            <div class="mb-3">
+                                <label class="small mb-1" for="endereco_profissional">Endereço</label>
+                                <input class="form-control" id="endereco_profissional" name="endereco_profissional" type="text" placeholder="Endereço" value="{{editar_profissional.endereco_profissional}}">
+                            </div>
+                            <!-- Linha -->
+                            <div class="row gx-3 mb-3">
+                                <!-- Telefone -->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="telefone_profissional">Telefone/Celular</label>
+                                    <input class="form-control" id="telefone_profissional" name="telefone_profissional" type="text" placeholder="Telefone" value="{{editar_profissional.telefone_profissional}}">
+                                </div>
+                                <!-- Localização -->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputLocation">Localização</label>
+                                    <select class="form-select" aria-label="estado_profissional"  id="estado_profissional" name="estado_profissional">
+                                        <option value="{{editar_profissional.estado_profissional}}" selected>{{editar_profissional.estado_profissional}}</option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                        <option value="EX">Estrangeiro</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+                            <!-- Botão de Salvar -->
+                            <button class="btn btn-success" type="submit">Salvar alterações</button>
+                            <a href="/portal_profissional" class="btn btn-primary" type="button">Voltar</a>
+                            
+                            <a href="/deletar/{{current_user.id}}" class="btn btn-danger" style="float: right;"type="button">Excluir conta</a>
+                            
+                        </form>
+
+                        <!-- Final do formulário -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+      {% else %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+           Você não tem permissão para acessar essa página.
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+     
+         <h2>Acesso negado.</h2>
+         <p>Você não pode acessar a página deste usuário.</p>
+     
+     {% endif %}
+
+     
+     {% endblock %}
+
+

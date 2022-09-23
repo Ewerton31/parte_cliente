@@ -1,0 +1,174 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Adicionar histórico profissional {%endblock%}
+
+{%block content %}
+<link rel="stylesheet" href="/static/css/portal_profissional/formulario_historico.css">
+
+    <form method="POST" class="form mt-5 shadow" id="forms">
+    
+        <div class="progressbar">
+          <div class="progress" id="progress"></div>
+          
+          <div class="progress-step progress-step-active" data-title="Geral"></div>
+          <div class="progress-step" data-title="Experiência"></div>
+          <div class="progress-step" data-title="Social"></div>
+        </div>
+        <div class="step-forms step-forms-active">
+            <p class="mb-4">Oi, {{current_user.nome_profissional}}! Nos conte um pouco sobre você.</p>
+          <div class="group-inputs">
+            <label>Sobre mim</label>
+            <textarea style="white-space: pre-line" class="form-control" id="sobre_mim" name="sobre_mim" rows="3"></textarea>
+          </div>
+          <div class="group-inputs">
+            <label>Idiomas</label>
+            <input type="text" class="form-control" id="idioma" name="idioma" placeholder="Ex: Inglês, Português...">
+          </div>
+          <div>
+            <a href="#" class="btn btn-primary btn-next width-50 mx-auto">Próximo</a>
+          </div>
+        </div>
+
+
+
+        <div class="step-forms">
+            <div class="text-center">
+              <h3>
+                <i class="fa-solid fa-graduation-cap mr-4"></i>Formação Acadêmica
+              </h3>
+            </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end controls">
+                  <a href="#" class="btn btn-info btn-sm" id="adicionar_campo" title="Adicionar campo de formação acadêmica"><i class="fa fa-plus"></i></a>
+                  <a href="#" class="btn btn-danger btn-sm disabled" id="remover_campo" title="Deletar campo de formação acadêmica"><i class="fa fa-minus"></i></a>
+                </div>
+            <div class="group-inputs">
+                  <div class="group-inputs">
+                    <label>Nome da Instituição</label>
+                    <input type="text" class="form-control" id="nome_instituicao" name="nome_instituicao">
+                  </div>
+                  <div class="group-inputs">
+                    <label>Nome do Curso</label>
+                    <input type="text" class="form-control" id="curso_academico" name="curso_academico">
+                  </div>
+                  <div class="row g-3">
+                    <div class="group-inputs col">
+                      <label>Ano de Início</label>
+                      <input type="text" class="form-control" id="data_inicio" name="data_inicio" maxlength="4" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;">
+                    </div>
+                    <div class="group-inputs col">
+                      <label>Ano de Termino</label>
+                      <input type="number" class="form-control" id="data_termino" name="data_termino" maxlength="4" onkeypress="if (!isNaN(String.fromCharCode(window.event.keyCode))) return true; else return false;">
+                    </div>
+                  </div>
+                  <div class="group-inputs">
+                    <label>Descrição de atividades ou resultados</label>
+                    <textarea style="white-space: pre-line" class="form-control" id="descricao_academica" name="descricao_academica" rows="3"></textarea>
+                  </div>
+                  <div class="wrapper">
+                    <div id="opcao">
+                      <div id="hr_div"></div>
+                      <div class="group-inputs" id="instituicao_div"></div>
+                      <div class="group-inputs" id="curso_div"></div>
+                      <div class="row g-3">
+                        <div class="group-inputs col" id="data_inicio_div"></div>
+                        <div class="group-inputs col" id="data_termino_div"></div>
+                      </div>
+                      <div class="group-inputs" id="descricao_div"></div>
+                  </div>
+                    <div id="opcao1">
+                      <div id="hr_div1"></div>
+                      <div class="group-inputs" id="instituicao_div1"></div>
+                      <div class="group-inputs" id="curso_div1"></div>
+                      <div class="row g-3">
+                        <div class="group-inputs col" id="data_inicio_div1"></div>
+                        <div class="group-inputs col" id="data_termino_div1"></div>
+                      </div>
+                      <div class="group-inputs" id="descricao_div1"></div>
+                    </div>
+                  </div>
+          </div>
+
+
+          <div class="text-center">
+            <h3>
+              <i class="fa-solid fa-briefcase mr-4"></i>Experiência Profissional
+            </h3>
+          </div>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end controls">
+            <a href="#" class="btn btn-info btn-sm" id="" title="Adicionar campo de experiência profissional"><i class="fa fa-plus"></i></a>
+            <a href="#" class="btn btn-danger btn-sm disabled" id="" title="Deletar campo de experiência profissional"><i class="fa fa-minus"></i></a>
+          </div>
+          <div class="group-inputs">
+            <div class="group-inputs">
+              <label>Nome da Empresa</label>
+              <input type="text" class="form-control" id="" name="">
+            </div>
+            <div class="group-inputs">
+              <label>Cargo</label>
+              <input type="text" class="form-control" id="" name="">
+            </div>
+            <div class="group-inputs">
+              <label>Descrição de atividades ou resultados</label>
+              <textarea style="white-space: pre-line" class="form-control" id="" name="" rows="3"></textarea>
+            </div>
+            <div class="wrapper">
+              <div id="">
+                <div id="">
+                <div class="group-inputs" id=""></div>
+                <div class="group-inputs" id=""></div>
+                <div class="row g-3">
+                  <div class="group-inputs col" id=""></div>
+                  <div class="group-inputs col" id=""></div>
+                </div>
+                <div class="group-inputs" id=""></div>
+              </div>
+            </div>
+              <div id="">
+                <div id=""></div>
+                <div class="group-inputs" id=""></div>
+                <div class="group-inputs" id=""></div>
+                <div class="row g-3">
+                  <div class="group-inputs col" id=""></div>
+                  <div class="group-inputs col" id=""></div>
+                </div>
+                <div class="group-inputs" id=""></div>
+              </div>
+            </div>
+      </div>
+          <div class="btns-group">
+            <a href="#" class="btn btn-outline-primary btn-prev">Voltar</a>
+            <a href="#" class="btn btn-primary btn-next">Próximo</a>
+          </div>
+        </div>
+
+
+        <div class="step-forms">
+            <div class="group-inputs">
+              <label for="">Facebook</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+              <label for="">Twitter</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+              <label for="">Linkedin</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+              <label for="">Instagram</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div class="group-inputs">
+                <label for="">Outros</label>
+                <input type="text" name="" id="" />
+              </div>
+            <div class="btns-group">
+              <a href="#" class="btn btn-outline-primary btn-prev">Voltar</a>
+              <!-- <input type="submit" value="Adicionar" id="submit-form" class="btn btn-primary"/> -->
+              <button class="btn btn-success" type="submit">Salvar</button>
+            </div>
+          </div>
+      </form>
+
+      <script src="/static/js/portal_profissional/formulario_historico.js"></script>
+{%endblock%}
+

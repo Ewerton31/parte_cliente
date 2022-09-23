@@ -1,0 +1,99 @@
+{% extends 'base_portal_profissional.html' %} {% block header %} Curso {{curso.id}} {%endblock%}
+
+{%block content %}
+              <div class="container mt-5 mb-5">
+                <div class="card-header text-white bg-dark">
+                  {{curso.categoria_curso}}
+                </div>
+                	<div class="card"  style=" background: #fff">	
+                    <div class="row g-0">	
+                      <div class="col-md-6 border-end">	
+                        <div class="d-flex flex-column justify-content-center">	
+                          <div class="imagem_curso">	
+                            <img src="https://certificadocursosonline.com/wp-content/uploads/2020/12/logo_480x480.png" id="main_product_image" width="350">	
+                          </div>	
+
+                          <div class="d-flex flex-column" style="text-align: center;">
+                            <div class="mt-3" >	
+                              <span class="fw-bold">{{curso.responsavel.especialidade}} Responsável</span>
+                              <br/>
+                              <span>{{curso.responsavel.nome_profissional}} {{curso.responsavel.sobrenome_profissional}}</span>
+                            </div>	
+                            <div class="mt-3" >	
+                              <span class="fw-bold">Contato</span>
+                              <br/>
+                              <span>{{curso.responsavel.telefone_profissional}}</span>
+                              <br/>
+                              <span>{{curso.responsavel.email_profissional}}</span>
+                            </div>	
+                            <div class="mt-3" >	
+                              <span class="fw-bold">Mais informações</span>
+                              <div class="mt-2">
+                                <a href="/{{curso.responsavel.usuario_profissional}}" class="btn btn-dark" ><i class="fa-regular fa-id-card"></i> Visitar perfil</a> 
+                              </div>
+                            </div>	
+                            <br/>
+                          </div>
+                            </div>	
+                          </div>	
+                          <div class="col-md-6">	
+                            <div class="p-3 right-side">	
+                              <div class="d-flex justify-content-between align-items-center">	
+                                <h3>{{curso.nome_curso}}</h3>	
+                                <span class="favorito">
+                                  <i class="fa-regular fa-heart"></i>
+                                </span>	
+                              </div>	
+                                <div class="mt-2 pr-3 content">	
+                                  <span style="white-space: pre-line">{{curso.sobre_curso}}</span>	
+                                </div>	
+                                <h3  class="mt-3">R$ {{curso.preco_curso}},00</h3>	
+                                <div class="ratings d-flex flex-row align-items-center">	
+                                  <div class="d-flex flex-row">	
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                  </div>
+                                </div>	
+                                    <div class="mt-4">	
+                                      <span class="fw-bold">Possui certificado?</span>
+                                      <br/>
+                                      <span>{{curso.possui_certificado}}</span>
+                                    </div>	
+                                    <div class="mt-3">	
+                                      <span class="fw-bold">Carga horária</span>
+                                      <br/>
+                                      <span>{{curso.carga_horaria}}h</span>
+                                    </div>	
+                                    <div class="mt-3">	
+                                      <span class="fw-bold">Cronograma</span>
+                                      <br/>
+                                      <span style="white-space: pre-line">{{curso.cronograma_curso}}</span>
+                                    </div>
+                                    <div class="mt-3">	
+                                      <span class="fw-bold">Conteúdo</span>
+                                      <br/>
+                                      <span style="white-space: pre-line">{{curso.conteudo_curso}}</span>
+                                    </div>	
+                                    <div class="mt-3">	
+                                      <span class="fw-bold">Bibliografia</span>
+                                      <br/>
+                                      <span style="white-space: pre-line">{{curso.bibliografia_curso}}</span>
+                                    </div>
+                                    <div class="mt-3">	
+                                      <span class="fw-bold">Método de pagamento</span>
+                                      <br/>
+                                      <span style="white-space: pre-line">{{curso.metodo_pagamento}}</span>
+                                    </div>	
+                                    <div class="buttons d-flex flex-row mt-5 gap-3">	
+                                      <button class="btn btn-outline-dark">Inscreva-se</button>
+                                      	<!-- <button class="btn btn-dark">Adicionar ao carrinho</button>	 -->
+                                      </div>	
+                                    </div>	
+                                  </div>	
+                                </div>	
+                              </div> 
+                            </div>
+{%endblock%}

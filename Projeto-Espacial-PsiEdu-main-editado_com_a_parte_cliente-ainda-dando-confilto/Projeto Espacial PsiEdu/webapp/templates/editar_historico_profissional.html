@@ -1,0 +1,32 @@
+{% extends 'base_portal_profissional.html' %} {% block title %} Editar histórico profissional {%endblock%}
+
+{%block content %}
+
+    <div class="container mt-5 mb-5">
+        <div class="card mb-5">
+            <div class="card-header text-white bg-primary">
+                Editar histórico profissional
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Sobre mim</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="sobre_mim" name="sobre_mim" rows="3" placeholder="Sobre mim*">{{historico.sobre_mim}}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Experiência profissional</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="experiencia_profissao" name="experiencia_profissao" rows="3" placeholder="Experiência profissional*">{{historico.experiencia_profissao}}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="">Idiomas</label>
+                        <textarea style="white-space: pre-line" class="form-control" id="idioma" name="idioma" rows="3" placeholder="Formação acadêmica*">{{historico.idioma}}</textarea>
+                    </div>
+                    <button class="btn btn-success" type="submit">Editar</button>
+                    <a href="/portal_profissional" class="btn btn-primary" type="button">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}
+

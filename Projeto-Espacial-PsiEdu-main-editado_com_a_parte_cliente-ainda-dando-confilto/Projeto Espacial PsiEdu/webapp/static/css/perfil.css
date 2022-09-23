@@ -1,0 +1,167 @@
+.candidates-profile-bg {
+  padding: 180px 0px 80px 0px;
+  background-image: url("https://1.bp.blogspot.com/-m-VEdwkykS0/X2jHP6xwqMI/AAAAAAAAbLE/azc4CVreqNQPMs4nend97i6fo0_oPTgnQCLcBGAsYHQ/d/at-at-minimalist-pc-wallpaper-hd.png");
+  background-size: cover;
+  position: relative;
+  background-position: center center;
+}
+
+.candidates-profile-details img {
+  max-width: 130px;
+  background: transparent;
+}
+
+.candidates-profile-details .candidates-profile-name {
+  font-weight: 300;
+}
+
+.candidates-profile-icons .list-inline-item {
+  margin: 0 1px !important;
+}
+
+.candidates-profile-social-icons li a {
+  height: 32px;
+  width: 32px;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 15px;
+  display: inline-block;
+  line-height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.candidates-profile-social-icons li a:hover {
+  background-color: #4c5fb7;
+  color: #ffffff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-color: #4c5fb7;
+}
+
+.profile-education-icon {
+  border: 1px solid #ececec;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  font-size: 42px;
+  border-radius: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  background-color: #4c5fb7;
+  color: #fff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.candidates-profile-education {
+  padding: 64px 24px 24px;
+}
+
+.candidates-profile-education:hover .profile-education-icon {
+  background-color: #6c7fcf;
+  border: 1px solid #4c5fb7;
+  color: #ffffff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.job-details {
+  padding: 210px 0px 60px 0px;
+  background-image: url("../images/job-details-bg.jpg");
+  background-size: cover;
+  position: relative;
+  background-position: center center;
+}
+
+.job-detail {
+ background-color: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+}
+
+.job-details-desc-item p {
+  overflow: hidden;
+}
+
+.job-detail-icons li {
+  margin: 2px !important;
+}
+
+.job-detail-icons li a {
+  height: 32px;
+  width: 32px;
+  color: #4c5fb7;
+  text-align: center;
+  font-size: 15px;
+  display: inline-block;
+  line-height: 30px;
+  border-radius: 50%;
+  border: 1px solid #4c5fb7;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.job-detail-icons li a:hover {
+  background-color: #4c5fb7;
+  color: #ffffff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.job-detail-time li {
+  padding: 10px 4px;
+  border-top: 1px solid #ececec;
+}
+
+.job-detail-time li:first-child {
+  border-top: none;
+}
+.section {
+    padding-bottom: 80px;
+    padding-top: 80px;
+    position: relative;
+}
+
+.card {
+    background: #fff;
+    margin-bottom: 30px;
+    transition: .5s;
+    border: 0;
+    border-radius: .1875rem;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.card .body {
+    font-size: 14px;
+    color: #424242;
+    padding: 20px;
+    font-weight: 400;
+}
+.profile-page .profile-header {
+    position: relative
+}
+
+.profile-page .profile-header .profile-image img {
+    border-radius: 50%;
+    width: 140px;
+    border: 3px solid #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+}
+
+hr {
+  border-top: 1px solid #8c8b8b;
+}
+
+.cor-titulo{
+
+  background-color: #4c5fb7;
+  color: #fff
+}
